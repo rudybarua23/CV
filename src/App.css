@@ -1,0 +1,86 @@
+/* General Reset */
+body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Ensure proper stacking of elements */
+}
+
+/* Flexbox layout for main containers */
+.app-container {
+  display: flex;
+  width: 100%; /* Full width of the parent container */
+  height: 100%; /* Full height of the parent container */
+  overflow: hidden; /* Prevent content spillover */
+}
+
+/* Left Side: Form */
+.form-container {
+  width: 50%; /* Half the width of the screen */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-right: 2px solid #ddd;
+  overflow-y: auto; /* Scrollable if content exceeds height */
+  color: #333; /* Ensure text color is visible */
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Ensure visible text */
+}
+
+.form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333; /* Ensure label text is visible */
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem; /* Ensure input text is visible */
+}
+
+.form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Right Side: CV Preview */
+.cv-container {
+  width: 50%; /* Half the width of the screen */
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: auto; /* Scrollable if content exceeds height */
+  color: #333; /* Ensure text color is visible */
+}
+
+.cv-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Ensure visible text */
+}
+
+.cv-content {
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+  color: #333; /* Ensure visible text */
+}
+
+.cv-content p {
+  margin-bottom: 10px;
+}
+
+.cv-content strong {
+  font-weight: bold;
+  color: #000; /* Highlight labels for the CV */
+}
