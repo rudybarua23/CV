@@ -22,16 +22,17 @@ export default function SkillsForm({inputs, setInputs, handleChange}) {
             <h2>Skills</h2>
             {inputs.skills.map((skills,index) => {
                 return (
-                    <div key={index}>
-                        <label>
-                            Skill:
+                    <div key={index} className="skillsBox">
+                        <div className="skillsGroup">
+                        <label htmlFor={`skill-${index}`}>Skill:</label>
                             <input
+                                id={`skill-${index}`}
                                 type="text"
                                 name="skill"
                                 value={skills.skill}
                                 onChange={(e) => handleChange("skills", index, e)}
                             />
-                        </label>
+                        </div>
                         <button type="button" onClick={() => removeSkills(index)}>
                             Remove
                         </button>

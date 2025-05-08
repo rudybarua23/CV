@@ -6,24 +6,32 @@ body, #root {
   height: 100vh; /* Full height of the viewport */
   display: flex;
   flex-direction: column; /* Ensure proper stacking of elements */
+  overflow: hidden;
 }
 
 /* Flexbox layout for main containers */
 .app-container {
   display: flex;
-  width: 100%; /* Full width of the parent container */
-  height: 100%; /* Full height of the parent container */
-  overflow: hidden; /* Prevent content spillover */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  justify-content: space-between; /* Evenly distribute space */
+  gap: 2rem; /* Add spacing between sections */
+  align-items: stretch;
 }
 
 /* Left Side: Form */
 .form-container {
-  width: 50%; /* Half the width of the screen */
-  padding: 20px;
-  background-color: #f9f9f9;
+  width: 50%;
+  height: 100%;
+  padding: 30px; /* More spacious padding */
+  background-color:#f0f0f0;
   border-right: 2px solid #ddd;
-  overflow-y: auto; /* Scrollable if content exceeds height */
-  color: #333; /* Ensure text color is visible */
+  overflow-y: auto;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-sizing: border-box;
 }
 
 .form-container h2 {
@@ -42,12 +50,14 @@ body, #root {
 .form input,
 .form textarea {
   width: 100%;
-  padding: 8px;
+  padding: 8px 10px;
   margin-top: 5px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem; /* Ensure input text is visible */
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
 
 .form textarea {
@@ -55,32 +65,555 @@ body, #root {
   height: 100px;
 }
 
-/* Right Side: CV Preview */
-.cv-container {
-  width: 50%; /* Half the width of the screen */
-  padding: 20px;
-  background-color: #fff;
-  overflow-y: auto; /* Scrollable if content exceeds height */
-  color: #333; /* Ensure text color is visible */
+.form input:focus,
+.form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5); /* Highlight focus */
 }
 
-.cv-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333; /* Ensure visible text */
-}
-
-.cv-content {
-  font-family: "Georgia", serif;
-  line-height: 1.6;
-  color: #333; /* Ensure visible text */
-}
-
-.cv-content p {
-  margin-bottom: 10px;
-}
-
-.cv-content strong {
+/* Button Styling */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
   font-weight: bold;
-  color: #000; /* Highlight labels for the CV */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.personalBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.personalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.personalGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.personalGroup label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.personalGroup input,
+.personalGroup textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Box container for each job */
+.employmentBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Grid rows for alignment */
+.employmentRow1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.employmentRow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.employmentRow3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input group block */
+.employmentGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 100%;
+}
+
+.employmentGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.employmentGroup input,
+.employmentGroup textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.employmentGroup input:focus,
+.employmentGroup textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  width: fit-content;
+  padding: 10px 16px;
+  margin-top: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.educationBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Row 1: School + Degree */
+.educationRow1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Row 2: Start Date, End Date, City */
+.educationRow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* Row 3: Description full width */
+.educationRow3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Reusable input group style */
+.educationGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 100%;
+}
+
+.educationGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.educationGroup input,
+.educationGroup textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.educationGroup input:focus,
+.educationGroup textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Skills Section Styling */
+.skillsBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.skillsGroup {
+  flex: 1 1 auto;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skillsGroup label {
+  font-weight: bold;
+  color: #333;
+}
+
+.skillsGroup input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.skillsGroup input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.skillsBox button {
+  padding: 10px 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  height: fit-content;
+  align-self: flex-start;
+}
+
+.skillsBox button:hover {
+  background-color: #0056b3;
+}
+
+.form-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.top {
+  padding-bottom: 4rem;
+  display: block;
+  font-size: 3rem;
+  background-color: #2f3640;    
+  color: white !important;                          
+  padding: 1rem 2rem;             /* space inside */
+  border-radius: 10px;            /* curved corners */
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;            /* spacing below */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* optional shadow */
+}
+
+
+/* Right Side: CV Preview */
+/* === Resume Preview Layout === */
+.resume-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.resume-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+}
+
+.resume-controls button {
+  padding: 0.5rem 1rem;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.resume-controls button:hover {
+  background: #111;
+}
+
+.resume-wrapper {
+  display: flex;
+  max-width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: white;
+  color: #222;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  flex-direction: row;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.resume-section-block p,
+.resume-header p {
+  line-height: 1.5;
+  max-width: 95%;
+}
+
+/* --- Prevent text overflow throughout resume preview --- */
+.resume-container,
+.resume-wrapper,
+.resume-main,
+.resume-sidebar,
+.resume-header,
+.resume-section,
+.resume-section-block,
+.section-header,
+.resume-section-block p,
+.resume-header p,
+.contact-info p {
+  overflow-wrap: break-word; /* ✅ Breaks long words like emails, URLs */
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* === Sidebar === */
+.resume-sidebar {
+  background-color: #2f3640;
+  color: white;
+  max-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc; 
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.upload-btn {
+  padding: 16px 50px;
+  font-size: 1rem;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.upload-btn:hover {
+  background-color: #0056b3;
+}
+
+.occupation {
+  font-size: 1rem;
+  color: #ccc;
+  margin-top: 0.2rem;
+}
+
+.contact-info h3 {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.contact-info p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* === Main === */
+.resume-main {
+  background-color: white;
+  width: 70%;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.resume-header h1 {
+  margin-bottom: 0.2rem;
+}
+
+.resume-header h2 {
+  margin-top: 0;
+  font-weight: 400;
+  color: #888;
+}
+
+.resume-section-block {
+  margin-bottom: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.section-header h4 {
+  margin: 0;
+}
+
+.date-range {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.sub-info {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+/* === Section Styling === */
+.section-title {
+  margin-bottom: 0.2rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.section-line {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  background-color: #f1f1f1;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.print-tip {
+  font-size: 0.75rem;
+  color: #666;
+  max-width: 250px;
+  line-height: 1.2;
+  background: #f5f5f5;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* === Print Styling === */
+@media print {
+  .form-container,
+  .resume-controls {
+    display: none !important;
+  }
+
+  .resume-container {
+    width: 100% !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important; /* Chrome & Safari */
+    print-color-adjust: exact !important;         /* Firefox */
+  }
+
+  .resume-wrapper {
+    background-color: #fff !important;
+    color: #000;
+  }
+
+  .resume-sidebar {
+    background-color: #2f3640 !important;
+  }
+
+  .profile-pic {
+    background-color: #bbb !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
+}
+
+/* === Dark Mode === */
+body.dark-mode .resume-wrapper {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-mode .resume-sidebar {
+  background-color: #141414;
+}
+
+body.dark-mode .section-line {
+  border-bottom-color: #444;
 }
