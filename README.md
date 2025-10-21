@@ -22,6 +22,8 @@ https://github.com/rudybarua23/CV (intended for GitHub Pages deployment)
 
 ## 📁 Project Structure
 
+```
+
 cv/
 ├─ index.html
 ├─ vite.config.js
@@ -39,6 +41,7 @@ cv/
 │     └─ Preview.jsx        # Resume view + Print & Dark Mode controls
 └─ ...
 
+```
 
 # React + Vite
 
