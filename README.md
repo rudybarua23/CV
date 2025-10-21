@@ -27,17 +27,18 @@ cv/
 ├─ vite.config.js
 ├─ package.json
 ├─ src/
-│ ├─ main.jsx # App entry
-│ ├─ MainApp.jsx # Centralized state + layout (Form | Preview)
-│ ├─ App.css # Form + resume styles (including print & dark mode)
-│ ├─ index.css # Base styles (Vite defaults, light/dark hints)
-│ └─ components/
-│ ├─ PersonalForm.jsx # First/Last, email, phone, address, occupation, links, about, photo
-│ ├─ EmploymentForm.jsx # Add/remove jobs, dates, city, employer, description
-│ ├─ EducationForm.jsx # Add/remove schools, degree, dates, city, description
-│ ├─ SkillsForm.jsx # Add/remove skills
-│ └─ Preview.jsx # Resume view + Print & Dark Mode controls
+│  ├─ main.jsx            # App entry
+│  ├─ MainApp.jsx         # Centralized state + layout (Form | Preview)
+│  ├─ App.css             # Form + resume styles (including print & dark mode)
+│  ├─ index.css           # Base styles (Vite defaults, light/dark hints)
+│  └─ components/
+│     ├─ PersonalForm.jsx   # First/Last, email, phone, address, occupation, links, about, photo
+│     ├─ EmploymentForm.jsx # Add/remove jobs, dates, city, employer, description
+│     ├─ EducationForm.jsx  # Add/remove schools, degree, dates, city, description
+│     ├─ SkillsForm.jsx     # Add/remove skills
+│     └─ Preview.jsx        # Resume view + Print & Dark Mode controls
 └─ ...
+
 
 # React + Vite
 
